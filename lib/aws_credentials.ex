@@ -1,0 +1,2 @@
+defmodule AwsCredentials do
+end

@@ -1,0 +1,77 @@
+[
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": {
+        "with_body": "true",
+        "recv_timeout": 3000,
+        "connect_timeout": 3000
+      },
+      "request_body": "",
+      "url": "http://169.254.169.254/latest/meta-data/iam/security-credentials/"
+    },
+    "response": {
+      "binary": false,
+      "body": "test-role",
+      "headers": {
+        "Content-Type": "text/plain",
+        "Date": "Sat, 23 Jan 2021 22:04:55 GMT",
+        "Content-Length": "12"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": {
+        "with_body": "true",
+        "recv_timeout": 3000,
+        "connect_timeout": 3000
+      },
+      "request_body": "",
+      "url": "http://169.254.169.254/latest/meta-data/iam/security-credentials/test-role"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\n\t\"Code\": \"Success\",\n\t\"LastUpdated\": \"2020-04-02T18:50:40Z\",\n\t\"Type\": \"AWS-HMAC\",\n\t\"AccessKeyId\": \"12345678901\",\n\t\"SecretAccessKey\": \"v/12345678901\",\n\t\"Token\": \"TEST92test48TEST+y6RpoTEST92test48TEST/8oWVAiBqTEsT5Ky7ty2tEStxC1T==\",\n\t\"Expiration\": \"2021-01-02T03:04:05Z\"\n}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Date": "Sat, 23 Jan 2021 22:04:55 GMT",
+        "Content-Length": "272"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  },
+  {
+    "request": {
+      "body": "",
+      "headers": [],
+      "method": "get",
+      "options": {
+        "with_body": "true",
+        "recv_timeout": 3000,
+        "connect_timeout": 3000
+      },
+      "request_body": "",
+      "url": "http://169.254.169.254/latest/dynamic/instance-identity/document"
+    },
+    "response": {
+      "binary": false,
+      "body": "{\n\t\"accountId\": \"0123456789\",\n\t\"imageId\": \"ami-0b69ea66ff7391e80\",\n\t\"availabilityZone\": \"us-east-1f\",\n\t\"ramdiskId\": null,\n\t\"kernelId\": null,\n\t\"devpayProductCodes\": null,\n\t\"marketplaceProductCodes\": null,\n\t\"version\": \"2017-09-30\",\n\t\"privateIp\": \"10.0.7.10\",\n\t\"billingProducts\": null,\n\t\"instanceId\": \"i-1234567890abcdef0\",\n\t\"pendingTime\": \"2019-10-31T07:02:24Z\",\n\t\"architecture\": \"x86_64\",\n\t\"instanceType\": \"m4.xlarge\",\n\t\"region\": \"us-east-1\"\n}",
+      "headers": {
+        "Content-Type": "application/json",
+        "Date": "Sat, 23 Jan 2021 22:04:55 GMT",
+        "Content-Length": "442"
+      },
+      "status_code": 200,
+      "type": "ok"
+    }
+  }
+]
