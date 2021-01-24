@@ -20,13 +20,14 @@ defmodule AwsCredentials.Providers.EC2 do
          {:ok, document} <- fetch_document() do
       expiration = metadata["Expiration"] |> DateTime.from_iso8601() |> elem(1)
 
-      %Credentials{
-        AccessKeyId: metadata["AccessKeyId"],
-        SecretAccessKey: metadata["SecretAccessKey"],
-        Token: metadata["Token"],
-        Region: document["region"],
-        Expiration: expiration
-      }
+      {:ok,
+       %Credentials{
+         AccessKeyId: metadata["AccessKeyId"],
+         SecretAccessKey: metadata["SecretAccessKey"],
+         Token: metadata["Token"],
+         Region: document["region"],
+         Expiration: expiration
+       }}
     else
       error -> error
     end

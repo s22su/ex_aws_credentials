@@ -22,25 +22,27 @@ defmodule AwsCredentials.Providers.EnvironmentTest do
   end
 
   test "fetches credentials from environment variables" do
-    %Credentials{
-      AccessKeyId: "test-access-key",
-      SecretAccessKey: "test-secret-access-key",
-      Token: "test-session-token",
-      Region: "us-west-2",
-      Expiration: nil
-    } = AwsCredentials.Providers.Environment.fetch()
+    {:ok,
+     %Credentials{
+       AccessKeyId: "test-access-key",
+       SecretAccessKey: "test-secret-access-key",
+       Token: "test-session-token",
+       Region: "us-west-2",
+       Expiration: nil
+     }} = AwsCredentials.Providers.Environment.fetch()
   end
 
   test "returns value of AWS_REGION when AWS_REGION and AWS_DEFAULT_REGION are provided" do
     System.put_env("AWS_REGION", "us-east-1")
 
-    %Credentials{Region: "us-east-1"} = AwsCredentials.Providers.Environment.fetch()
+    {:ok, %Credentials{Region: "us-east-1"}} = AwsCredentials.Providers.Environment.fetch()
   end
 
   test "returns value of AWS_SECURITY_TOKEN when AWS_SESSION_TOKEN and AWS_SECURITY_TOKEN are provided" do
     System.put_env("AWS_SECURITY_TOKEN", "test-security-token")
 
-    %Credentials{Token: "test-security-token"} = AwsCredentials.Providers.Environment.fetch()
+    {:ok, %Credentials{Token: "test-security-token"}} =
+      AwsCredentials.Providers.Environment.fetch()
   end
 
   test "returns error when AWS_REGION and AWS_DEFAULT_REGION are missing" do

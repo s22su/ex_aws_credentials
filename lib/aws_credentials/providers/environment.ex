@@ -32,13 +32,14 @@ defmodule AwsCredentials.Providers.Environment do
 
       {:error, Enum.join(missing_env_vars, " or ") <> " not found"}
     else
-      %Credentials{
-        AccessKeyId: fetch_credential_value(credentials_map, :aws_access_key_id),
-        SecretAccessKey: fetch_credential_value(credentials_map, :aws_secret_access_key),
-        Token: fetch_credential_value(credentials_map, :aws_token),
-        Region: fetch_credential_value(credentials_map, :aws_region),
-        Expiration: nil
-      }
+      {:ok,
+       %Credentials{
+         AccessKeyId: fetch_credential_value(credentials_map, :aws_access_key_id),
+         SecretAccessKey: fetch_credential_value(credentials_map, :aws_secret_access_key),
+         Token: fetch_credential_value(credentials_map, :aws_token),
+         Region: fetch_credential_value(credentials_map, :aws_region),
+         Expiration: nil
+       }}
     end
   end
 
