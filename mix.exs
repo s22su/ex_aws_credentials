@@ -21,7 +21,8 @@ defmodule AwsCredentials.MixProject do
     [
       {:jason, "~> 1.2"},
       {:hackney, "~> 1.17"},
-      {:exvcr, "~> 0.11", only: :test}
+      {:exvcr, "~> 0.11", only: :test},
+      {:mox, "~> 1.0", only: :test}
     ]
   end
 end
